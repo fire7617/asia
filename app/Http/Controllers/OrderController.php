@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use \App\Http\Requests\OrderPostRequest;
+
+use App\Services\OrderService;
+
+class OrderController extends Controller
+{
+    private $service = null;
+
+
+    public function __construct(OrderService $service) {
+        $this->service = $service;
+    }
+
+    /**
+     * Show the profile for a given user.
+     *
+     * @param  int  $id
+     * @return \Illuminate\View\View
+     */
+    public function order(OrderPostRequest $request)
+    {
+        $validated = $request->validated();
+        $errorMsg = '';
+
+        $data = $this->service->transFormat($request->all());
+
+        return response()->json([
+            'code' => 1,
+            'message' => $validated
+        ]);
+    }
+}
