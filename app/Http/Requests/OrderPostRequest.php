@@ -11,7 +11,7 @@ use App\Rules\OrderNameRule;
 class OrderPostRequest extends FormRequest
 {
 
-    CONST CODE_INVALID_PARAM = 422;
+    CONST CODE_INVALID_PARAM = 400;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -32,16 +32,13 @@ class OrderPostRequest extends FormRequest
     {
         return [
             'id'                => ['required','string'],
-            'name' => ['required'],
-//            'name'              => ['required','alpha','max:255',new OrderNameRule],
-//            'price'             => ['required','int','max:2000'],
-//            'currency'          => ['required',Rule::in(['TWD','USD'])],
-            'name'           => ['required'],
-            'price'           => ['required'],
-            'currency'           => ['required'],
-            'address.city'      => ['required'],
-            'address.district'  => ['required'],
-            'address.street'    => ['required'],
+            'name'              => ['required','string'],
+            'address.city'      => ['required','string'],
+            'address.district'  => ['required','string'],
+            'address.street'    => ['required','string'],
+            'price'             => ['required','string'],
+            'currency'          => ['required','string'],
+
         ];
     }
 

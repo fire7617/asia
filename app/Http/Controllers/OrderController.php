@@ -25,7 +25,6 @@ class OrderController extends Controller
      */
     public function order(OrderPostRequest $request)
     {
-        $errorMsg = '';
 
         $this->service->checkFormat($request->all());
         $order = $this->service->transFormat($request->all());

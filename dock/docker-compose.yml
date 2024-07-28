@@ -1,0 +1,36 @@
+version: "3"
+services:
+    kiwi-mandgame-php:
+        image: docker_kiwi-mandgame-php
+        container_name: kiwi-mandgame-php
+        deploy:
+          restart_policy:
+            condition: none
+        build:
+            context: .
+            dockerfile: php/Dockerfile
+        volumes:
+            - "/Users/linching-shiang/www/asia/app/:/app"
+
+        ports:
+            - "56379:6379"
+            - "8000:8000"
+        networks:
+            kiwi_php_network:
+                ipv4_address: 172.26.0.4
+
+    kiwi-redis:
+        image: redis:latest
+        container_name: kiwi-mandgame-redis
+        ports:
+          - 6379:6379
+        networks:
+            kiwi_php_network:
+                ipv4_address: 172.26.0.5
+
+networks:
+    kiwi_php_network:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.26.0.0/16

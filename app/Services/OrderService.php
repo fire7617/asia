@@ -18,7 +18,7 @@ class OrderService
     public function checkFormat($order = []) {
         $validator = Validator::make($order, [
             'name'    => ['regex:/^[a-zA-Z\s]+$/u',new OrderNameRule],
-            'price'   => ['numeric','regex:/^[1-9][0-9]+$/u','max:2000'],
+            'price'   => ['regex:/^\d+(\.\d{1,2})?$/','max:2000'],
             'currency'=> [Rule::in(['TWD','USD'])],
         ],[
             'name.regex' => 'Name contains non-English characters',

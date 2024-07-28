@@ -23,7 +23,6 @@ LIMIT 10
  * Step3: 是否有lock table的問題
 
 
-
  Solve
     1.索引加上
 　　2.資料量過大
@@ -38,5 +37,13 @@ LIMIT 10
 # API實作測驗
 
 ## SOLID說明
+
+
+依賴反轉原則
+    OrderService 使用依賴注入方式，降低耦合
+
+### DesignPattern
+
+
 
 
