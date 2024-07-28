@@ -13,8 +13,7 @@ class OrderController extends Controller
     private $service = null;
 
 
-    public function __construct(OrderService $service) {
-        $this->service = $service;
+    public function __construct() {
     }
 
     /**
@@ -25,7 +24,7 @@ class OrderController extends Controller
      */
     public function order(OrderPostRequest $request)
     {
-
+        $this->service = new OrderService('motel');
         $this->service->checkFormat($request->all());
         $order = $this->service->transFormat($request->all());
 

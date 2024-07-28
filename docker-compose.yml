@@ -1,0 +1,15 @@
+version: "3"
+services:
+    kiwi-mandgame-php:
+        container_name: kiwi-mandgame-php
+        deploy:
+          restart_policy:
+            condition: none
+        build:
+            context: .
+            dockerfile: dock/php/Dockerfile
+        volumes:
+            - "../app/:/app"
+        ports:
+            - "56379:6379"
+            - "8000:8000"

@@ -1,4 +1,6 @@
-#php artisan serve  --host 0.0.0.0
+# 建置環境
+
+
 
 
 # 資料庫題目
@@ -43,7 +45,5 @@ LIMIT 10
     OrderService 使用依賴注入方式，降低耦合
 
 ### DesignPattern
-
-
-
-
+Strategy Pattern
+    

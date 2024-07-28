@@ -10,7 +10,7 @@ services:
             context: .
             dockerfile: php/Dockerfile
         volumes:
-            - "/Users/linching-shiang/www/asia/app/:/app"
+            - "../app/:/app"
 
         ports:
             - "56379:6379"
