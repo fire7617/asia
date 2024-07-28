@@ -41,9 +41,7 @@ LIMIT 10
 ## SOLID說明
 
 
-依賴反轉原則
-    OrderService 使用依賴注入方式，降低耦合
-
 ### DesignPattern
 Strategy Pattern
+    將訂單使用strategy pattern去分類成檢查跟轉換，可依不同類型的訂單去動態切換相對應的檢查
     
