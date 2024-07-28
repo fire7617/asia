@@ -1,5 +1,7 @@
 # 建置環境
 
+* php8.2
+* port 8000
 
 
 
@@ -39,9 +41,12 @@ LIMIT 10
 # API實作測驗
 
 ## SOLID說明
+### 單一職責原則
+* 實作OrderService 負責訂單相關檢查跟轉換
+
 
 
 ### DesignPattern
 Strategy Pattern
-    將訂單使用strategy pattern去分類成檢查跟轉換，可依不同類型的訂單去動態切換相對應的檢查
+    將訂單使用strategy pattern去分類成檢查跟轉換，可依不同類型的訂單去動態切換相對應的檢查跟轉換
     
