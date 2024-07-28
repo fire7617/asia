@@ -32,30 +32,32 @@ class OrderPostRequest extends FormRequest
     {
         return [
             'id'                => ['required','string'],
-            'name'              => ['required','alpha','max:255',new OrderNameRule],
-            'price'             => ['required','int','max:2000'],
-            'currency'          => ['required',Rule::in(['TWD','USD'])],
-            'address'           => ['required'],
-            'address.city'      => [],
-            'address.district'  => [],
-            'address.street'    => [],
+            'name' => ['required'],
+//            'name'              => ['required','alpha','max:255',new OrderNameRule],
+//            'price'             => ['required','int','max:2000'],
+//            'currency'          => ['required',Rule::in(['TWD','USD'])],
+            'name'           => ['required'],
+            'price'           => ['required'],
+            'currency'           => ['required'],
+            'address.city'      => ['required'],
+            'address.district'  => ['required'],
+            'address.street'    => ['required'],
         ];
     }
 
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'id.required' => 'id is required',
-            'name.alpha' => 'Name contains non-English characters',
-            'price.max' => 'Price is over 2000',
-            'currency.in' => 'currency format is wrong',
-        ];
-    }
+//    /**
+//     * Get the error messages for the defined validation rules.
+//     *
+//     * @return array
+//     */
+//    public function messages()
+//    {
+//        return [
+//            'name.alpha' => 'Name contains non-English characters',
+//            'price.max' => 'Price is over 2000',
+//            'currency.in' => 'currency format is wrong',
+//        ];
+//    }
 
 
     protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)

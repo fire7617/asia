@@ -25,14 +25,11 @@ class OrderController extends Controller
      */
     public function order(OrderPostRequest $request)
     {
-        $validated = $request->validated();
         $errorMsg = '';
 
-        $data = $this->service->transFormat($request->all());
+        $this->service->checkFormat($request->all());
+        $order = $this->service->transFormat($request->all());
 
-        return response()->json([
-            'code' => 1,
-            'message' => $validated
-        ]);
+        return response()->json($order);
     }
 }
